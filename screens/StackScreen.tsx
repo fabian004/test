@@ -16,9 +16,9 @@ export function LoginStackScreen() {
   }
 
   if(user == null){
-    return <UserStack/>
+    return <Prueba2/>
  }else{
-    return <UserStack/>
+    return <Prueba/>
   }
 }
 
