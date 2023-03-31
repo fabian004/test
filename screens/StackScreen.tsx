@@ -1,5 +1,4 @@
 import {createNativeStackNavigator} from '@react-navigation/native-stack'
-import { NavigationContainer } from '@react-navigation/native';
 import React from "react";
 import { useAuthentication } from '../helpers/useAuthentication';
 
@@ -17,7 +16,7 @@ export function LoginStackScreen() {
   }
 
   return (
-    <Prueba2/>
+    <AuthStack/>
   )
   //return user ? <UserStack /> : <AuthStack />;
       
