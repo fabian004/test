@@ -1,47 +1,46 @@
 import {createNativeStackNavigator} from '@react-navigation/native-stack'
-import React from "react";
+import React, { useState }  from "react";
 import { useAuthentication } from '../helpers/useAuthentication';
-import { View, Text } from 'react-native';
+import { Button, Text } from 'react-native-paper';
 import { Prueba } from './profile/prueba';
 import { Prueba2 } from './profile/prueba2';
 import { LoginScreen } from './LoginScreen';
+import { createAppContainer } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation-stack';
 const Stack = createNativeStackNavigator();
 
-export function LoginStackScreen() {
 
-  const { user } = useAuthentication();
+const HomeScreen = ({ navigation }:any) => (
+  <>
+    <Text>Home Screen</Text>
+    <Button onPress={() => navigation.navigate('Details')}>Go to Details</Button>
+  </>
+);
 
-  if(user===undefined ){
-    return <Prueba/>
-  }
+const DetailsScreen = ({ navigation }:any) => (
+  <>
+    <Text>Details Screen</Text>
+    <Button onPress={() => navigation.goBack()}>Go back</Button>
+  </>
+);
 
-  if(user == null){
-    return <Prueba/>
- }else{
-    return <Prueba2/>
-  }
-}
+const AppNavigator = createStackNavigator({
+  Home: {
+    screen: HomeScreen,
+    navigationOptions: {
+      title: 'Home',
+      
+    },
+  },
+  Details: {
+    screen: DetailsScreen,
+    navigationOptions: {
+      title: 'Details',
+      headerShown: false 
+    },
+  },
+});
 
-function UserStack() {
-  return (
-      <Stack.Navigator screenOptions={{
-        headerShown: false,
-        }}>
-        <Stack.Screen name="Home" component={Prueba} />
-        <Stack.Screen name="Login" component={Prueba2} />
-      </Stack.Navigator>
-  );
-}
+const LoginStackScreen = createAppContainer(AppNavigator);
 
-
-function AuthStack() {
-  return (
-      <Stack.Navigator screenOptions={{
-        headerShown: false,
-        }}>
-        <Stack.Screen name="Login" component={Prueba2} />
-        <Stack.Screen name="Home" component={Prueba} />
-      </Stack.Navigator>
-  );
-}
-
+export default LoginStackScreen
