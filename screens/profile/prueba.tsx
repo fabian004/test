@@ -9,7 +9,7 @@ export function Prueba(){
   const navigation = useNavigation<Nav>()
     return (
       <View>
-        <Text>prueba 1 CUADRUPLE DIA DE DIA y quinteto</Text>
+        <Text>prueba 1 que chiste es esto</Text>
         <Button
           title="Go prueba 2"
           onPress={() => navigation.navigate('Login')}
