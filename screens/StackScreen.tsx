@@ -6,42 +6,26 @@ import {SafeAreaView, StyleSheet} from 'react-native';
 import { Prueba } from './profile/prueba';
 import { Prueba2 } from './profile/prueba2';
 import { LoginScreen } from './LoginScreen';
-import { createAppContainer } from 'react-navigation';
-import { createStackNavigator } from 'react-navigation-stack';
+import {NavigationContainer} from '@react-navigation/native'
 const Stack = createNativeStackNavigator();
 
 
-const HomeScreen = ({ navigation }:any) => (
-  <SafeAreaView>
-    <Text>Home Screen</Text>
-    <Button onPress={() => navigation.navigate('Details')}>Go to Details</Button>
-  </SafeAreaView>
-);
+export function LoginStackScreen() {
 
-const DetailsScreen = ({ navigation }:any) => (
-  <SafeAreaView>
-    <Text>Details Screen</Text>
-    <Button onPress={() => navigation.goBack()}>Go back</Button>
-  </SafeAreaView>
-);
+  return <UserStack/>
+  
+}
 
-const AppNavigator = createStackNavigator({
-  Home: {
-    screen: HomeScreen,
-    navigationOptions: {
-      title: 'Home',
-      
-    },
-  },
-  Details: {
-    screen: DetailsScreen,
-    navigationOptions: {
-      title: 'Details',
-      headerShown: false 
-    },
-  },
-});
+function UserStack() {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator screenOptions={{
+        headerShown: false,
+        }}>
+        <Stack.Screen name="Home" component={Prueba} />
+        <Stack.Screen name="Login" component={Prueba2} />
+    </Stack.Navigator>
+  </NavigationContainer>
+  );
 
-const LoginStackScreen = createAppContainer(AppNavigator);
-
-export default LoginStackScreen
+}
