@@ -12,7 +12,7 @@ export function Prueba(){
         <Text>prueba 1 doble noche</Text>
         <Button
           title="Go prueba 2"
-          onPress={() => navigation.navigate('Prueba2')}
+          onPress={() => navigation.navigate('Login')}
         />
       </View>
         

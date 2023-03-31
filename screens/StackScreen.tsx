@@ -1,10 +1,10 @@
 import {createNativeStackNavigator} from '@react-navigation/native-stack'
 import React from "react";
 import { useAuthentication } from '../helpers/useAuthentication';
-
+import { View, Text } from 'react-native';
 import { Prueba } from './profile/prueba';
 import { Prueba2 } from './profile/prueba2';
-
+import { LoginScreen } from './LoginScreen';
 const Stack = createNativeStackNavigator();
 
 export function LoginStackScreen() {
@@ -14,19 +14,31 @@ export function LoginStackScreen() {
   if(user===undefined ){
     return <Prueba/>
   }
-
-  return (
-    <AuthStack/>
-  )
-  //return user ? <UserStack /> : <AuthStack />;
+  console.log(user)
+  return user ? <UserStack /> : <AuthStack />;
       
 }
 
-function AuthStack() {
+function UserStack() {
   return (
-      <Stack.Navigator>
-        <Stack.Screen name="Prueba2" component={Prueba2} />
-        <Stack.Screen name="Prueba" component={Prueba} />
+      <Stack.Navigator screenOptions={{
+        headerShown: false,
+        }}>
+        <Stack.Screen name="Login" component={LoginScreen} />
+        <Stack.Screen name="Home" component={Prueba} />
       </Stack.Navigator>
   );
 }
+
+
+function AuthStack() {
+  return (
+      <Stack.Navigator screenOptions={{
+        headerShown: false,
+        }}>
+        <Stack.Screen name="Login" component={LoginScreen} />
+        <Stack.Screen name="Home" component={Prueba} />
+      </Stack.Navigator>
+  );
+}
+

@@ -11,9 +11,7 @@ export default function App() {
   return (
     <ApolloProvider client={client}>
     <NavigationContainer>
-      <View>
         <LoginStackScreen/>
-      </View>
     </NavigationContainer>
     </ApolloProvider>
 
