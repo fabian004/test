@@ -15,8 +15,12 @@ export function LoginStackScreen() {
     return <Prueba/>
   }
   console.log(user)
-  return user ? <UserStack /> : <AuthStack />;
-      
+
+  if(user == null){
+    return <AuthStack/>
+ }else{
+    return <UserStack/>
+  }
 }
 
 function UserStack() {
@@ -24,8 +28,8 @@ function UserStack() {
       <Stack.Navigator screenOptions={{
         headerShown: false,
         }}>
-        <Stack.Screen name="Login" component={LoginScreen} />
         <Stack.Screen name="Home" component={Prueba} />
+        <Stack.Screen name="Login" component={LoginScreen} />
       </Stack.Navigator>
   );
 }
