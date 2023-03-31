@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, SafeAreaView } from 'react-native';
 
 import {NavigationContainer} from '@react-navigation/native'
 import {ApolloProvider} from '@apollo/client'
@@ -7,12 +7,22 @@ import './config/firebase';
 import LoginStackScreen from './screens/StackScreen';
 
 export default function App() {
+
+
   return (
     <ApolloProvider client={client}>
-    <NavigationContainer>
+    <SafeAreaView style={styles.backgroundStyle}>
       <LoginStackScreen/>
-    </NavigationContainer>
+    </SafeAreaView>
     </ApolloProvider>
   );
 }
+
+
+const styles = StyleSheet.create({
+  backgroundStyle: {
+    flex:1,
+    backgroundColor: '#fff',
+  },
+});
 
