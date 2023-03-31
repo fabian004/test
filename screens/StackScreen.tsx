@@ -25,11 +25,9 @@ export function LoginStackScreen() {
 
 function AuthStack() {
   return (
-    <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen name="Prueba2" component={Prueba2} />
         <Stack.Screen name="Prueba" component={Prueba} />
       </Stack.Navigator>
-    </NavigationContainer>
   );
 }
