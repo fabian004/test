@@ -17,9 +17,9 @@ export function LoginStackScreen() {
   console.log(user)
 
   if(user == null){
-    return <AuthStack/>
+    return <Prueba/>
  }else{
-    return <UserStack/>
+    return <Prueba2/>
   }
 }
 
