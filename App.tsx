@@ -11,14 +11,11 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack'
 const Stack = createNativeStackNavigator();
 export default function App() {
   return (
+    <ApolloProvider client={client}>
     <NavigationContainer>
-        <Stack.Navigator screenOptions={{
-          headerShown: false,
-          }}>
-          <Stack.Screen name="Home" component={Prueba} />
-          <Stack.Screen name="Login" component={Prueba2} />
-        </Stack.Navigator>
+      <LoginStackScreen/>
     </NavigationContainer>
+    </ApolloProvider>
   );
 }
 
