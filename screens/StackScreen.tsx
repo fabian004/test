@@ -4,7 +4,7 @@ import { useAuthentication } from '../helpers/useAuthentication';
 import { View, Text } from 'react-native';
 import { Prueba } from './profile/prueba';
 import { Prueba2 } from './profile/prueba2';
-//import { LoginScreen } from './LoginScreen';
+import { LoginScreen } from './LoginScreen';
 const Stack = createNativeStackNavigator();
 
 export function LoginStackScreen() {
@@ -16,12 +16,12 @@ export function LoginStackScreen() {
   }
 
   if(user == null){
-    return <Prueba/>
+    return <UserStack/>
  }else{
-    return <Prueba2/>
+    return <UserStack/>
   }
 }
-/*
+
 function UserStack() {
   return (
       <Stack.Navigator screenOptions={{
@@ -44,4 +44,4 @@ function AuthStack() {
       </Stack.Navigator>
   );
 }
-*/
+
