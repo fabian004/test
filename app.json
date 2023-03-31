@@ -23,7 +23,7 @@
         "backgroundColor": "#ffffff"
       },
       "package": "com.feibian004.myapp",
-      "versionCode": 6
+      "versionCode": 7
     },
     "web": {
       "favicon": "./assets/favicon.png"
