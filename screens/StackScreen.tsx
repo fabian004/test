@@ -17,7 +17,7 @@ export function LoginStackScreen() {
   }
 
   return (
-    <AuthStack/>
+    <Prueba2/>
   )
   //return user ? <UserStack /> : <AuthStack />;
       
